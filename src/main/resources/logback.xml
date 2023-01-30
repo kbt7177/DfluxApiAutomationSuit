@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+<!--    <property name="USER_HOME" value="/src/main/resources" />-->
+
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} - [%t] | %-5.5p | %-150.150c [] - %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${user.dir}/src/main/resources/logs/application.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover. Make sure the path matches the one in the file element or else
+             the rollover logs are placed in the working directory. -->
+            <fileNamePattern>${user.dir}/src/main/resources/logs/application_%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5.5p %-100.100c [] - %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="DEBUG">
+        <appender-ref ref="consoleAppender" />
+        <appender-ref ref="FILE" />
+    </root>
+
+    <logger name="com.springer.quality" level="TRACE"/>
+    <logger name="org.apache" level="ERROR"/>
+    <logger name="io.github" level="ERROR"/>
+    <logger name="io.netty" level="ERROR"/>
+    <logger name="org.asynchttpclient" level="ERROR"/>
+
+</configuration>

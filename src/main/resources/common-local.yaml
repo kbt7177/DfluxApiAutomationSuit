@@ -1,0 +1,19 @@
+#Sample file
+
+database:
+  odyssey_database:
+    jdbc_url: jdbc:sqlserver://SNTPSSQLTEST\TEST;databaseName=adisdb-test;encrypt=true;trustServerCertificate=true;
+    username: usr_viewuser
+    password: usr_viewuser
+
+api:
+  thes_api:
+    base_url: http://adis-secured-data-service-qa.public.springernature.app/api/kmservice
+  journals_api:
+    base_url: http://adis-secured-data-service-qa.public.springernature.app/
+
+api_user:
+  thes_user:
+    user: kbt7177
+  journals_user:
+    user: kbt7177
